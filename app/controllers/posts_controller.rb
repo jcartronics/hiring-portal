@@ -69,4 +69,10 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:titulo, :descripcion, :estado)
     end
+
+    def authenticate_admin
+      unless current_user && current_user.role == "admin"
+        redirect_to root_path, alert: "No tienes permisos para acceder a esta página."
+      end
+    end
 end

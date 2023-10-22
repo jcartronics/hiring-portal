@@ -1,0 +1,10 @@
+<h1>Postulaciones</h1>
+
+<div id="postulations">
+  <% @postulations.each do |postulation| %>
+    <%= render postulation %>
+    <p>
+      <%= link_to "Ver Publicación", postulation.post, class: "btn btn-primary" %>
+    </p>
+  <% end %>
+</div>

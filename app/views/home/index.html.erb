@@ -1,2 +1,18 @@
 <h1>Bienvenido al Portal de Postulaciones Internas.</h1>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <p>Como administrador, puedes:
+        <%= link_to "Crear nuevas publicaciones", new_post_path, class:"btn btn-primary" %>
+        <%= link_to "Ver Todas las Postulaciones", postulations_path, class:"btn btn-primary" %>
+        <%= link_to "Crear Nuevo Usuario", new_user_path, class:"btn btn-primary" %>
+
+    </p>
+  <% else %>
+    <p>Como usuario, puedes:
+        <%= link_to "Ver Vacantes Disponibles", posts_path, class:"btn btn-primary" %>
+        <%= link_to "Ver Mis Postulaciones", postulations_path, class:"btn btn-primary" %>
+    </p>
+  <% end %>
+<% else %>
 <%= link_to "Ingresar", new_user_session_path, class:"btn btn-primary" %>
+<% end %>
