@@ -9,6 +9,11 @@
         <li class="nav-item">
           <%= link_to "Inicio", root_path, class: "nav-link #{current_class?(root_path)}", aria: { current: "page" } %>
         </li>
+        <% if user_signed_in? && current_user.admin? %>
+          <li class="nav-item">
+            <%= link_to "Crear Usuario", new_user_path, class: "nav-link #{current_class?(new_user_path)}", aria: { current: "page" } %>
+          </li>
+        <% end %>
 
         <%# Dropdown inicio sesion y registro %>
         <% if user_signed_in? %>
