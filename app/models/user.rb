@@ -6,4 +6,5 @@ class User < ApplicationRecord
   
   enum role: [:user, :admin]
   has_many :postulations
+  has_one_attached :foto
 end
