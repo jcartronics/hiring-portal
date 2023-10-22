@@ -1,0 +1,12 @@
+<h1>Nueva Publicación</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Ver Publicación", post %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Nueva Publicación", new_post_path %>
