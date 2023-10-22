@@ -5,7 +5,11 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    if current_user.role == "admin"
+      @posts = Post.all
+    else
+      @posts = Post.publicadas
+    end
   end
 
   # GET /posts/1 or /posts/1.json

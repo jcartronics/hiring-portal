@@ -8,4 +8,8 @@ class Post < ApplicationRecord
     # Enums
     enum estado: [:borrador, :publicada, :terminada]
 
+    scope :publicadas, -> { where(estado: :publicada) }
+    scope :borradores, -> { where(estado: :borrador) }
+    scope :terminadas, -> { where(estado: :terminada) }
+
 end

@@ -4,9 +4,11 @@
   <% @posts.each do |post| %>
     <%= render post %>
     <p>
-      <%= link_to "Ver Publicación", post %>
+      <%= link_to "Ver Publicación", post, class: "btn btn-primary" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "Nueva Publicación", new_post_path %>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to "Nueva Publicación", new_post_path, class: "btn btn-primary" %>
+<% end %>
