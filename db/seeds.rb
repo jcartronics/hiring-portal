@@ -19,3 +19,16 @@ usuario = User.find_or_create_by(email: 'usuario@example.com') do |user|
 end
 
 puts "Usuario normal creado con correo: #{usuario.email}"
+
+usuario01 = User.find_or_create_by(email: 'usuario01@example.com') do |user|
+  user.password = 'password123'
+  user.role = 'user'
+end
+
+puts "Usuario normal creado con correo: #{usuario01.email}"
+
+# Crear publicaciones
+publicacion = Post.find_or_create_by(title: 'Publicacion 1') do |post|
+  post.content = 'Oferta Laboral 01'
+  post.user_id = admin.id
+end
