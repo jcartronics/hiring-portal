@@ -12,3 +12,10 @@ admin = User.find_or_create_by(email: 'admin@example.com') do |user|
   end
   
 puts "Usuario administrador creado con correo: #{admin.email}"
+
+usuario = User.find_or_create_by(email: 'usuario@example.com') do |user|
+  user.password = 'password123'
+  user.role = 'user'
+end
+
+puts "Usuario normal creado con correo: #{usuario.email}"
