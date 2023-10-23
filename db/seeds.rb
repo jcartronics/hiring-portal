@@ -30,5 +30,4 @@ puts "Usuario normal creado con correo: #{usuario01.email}"
 # Crear publicaciones
 publicacion = Post.find_or_create_by(titulo: 'Publicacion 1') do |post|
   post.descripcion = 'Oferta Laboral 01'
-  post.user_id = admin.id
 end
